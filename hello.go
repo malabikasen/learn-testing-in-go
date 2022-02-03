@@ -13,12 +13,19 @@ func PrintHello(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
-	if language == spanish {
-		return greetingPrefixSpanish + name
-	} else if language == french {
-		return greetingPrefixFrench + name
+
+	var prefix string
+
+	switch language {
+	case spanish:
+		prefix = greetingPrefixSpanish
+	case french:
+		prefix = greetingPrefixFrench
+	default:
+		prefix = greetingPrefixEnglish
 	}
-	return greetingPrefixEnglish + name
+
+	return prefix + name
 
 }
 func main() {
