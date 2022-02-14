@@ -1,6 +1,8 @@
 package shapes
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestPerimeter(t *testing.T) {
 	rectangle := Rectangle{4.0, 5.0}
@@ -30,4 +32,21 @@ func TestArea(t *testing.T) {
 		checkArea(t, circle, 314.2)
 	})
 
+}
+
+func Test_Area(t *testing.T) {
+	areaTests := []struct {
+		shape Shape
+		want  float64
+	}{
+		{Rectangle{12.0, 6.0}, 72.0},
+		{Circle{10.0}, 314.2},
+	}
+
+	for _, tt := range areaTests {
+		got := tt.shape.Area()
+		if got != tt.want {
+			t.Errorf("got %g, wanted %g", got, tt.want)
+		}
+	}
 }
