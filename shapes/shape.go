@@ -9,6 +9,12 @@ type Circle struct {
 	Radius float64
 }
 
+type Triangle struct {
+	length float64
+	base   float64
+	height float64
+}
+
 type Shape interface {
 	Area() float64
 }
@@ -23,4 +29,8 @@ func Perimeter(rectangle Rectangle) float64 {
 
 func (c Circle) Area() float64 {
 	return 3.142 * c.Radius * c.Radius
+}
+
+func (t Triangle) Area() float64 {
+	return 0.5 * t.length * t.base * t.height
 }
